@@ -24,7 +24,6 @@
 - [🔐 Autenticación](#-autenticación)
 - [📬 Endpoints Principales](#-endpoints-principales)
 - [📌 Estado del Proyecto](#-estado-del-proyecto)
-- [👤 Autor](#-autor)
 
 ## 🚀 Descripción del Proyecto
 
@@ -111,7 +110,7 @@ Ejemplo de body JSON para `/login`:
 ```
 
 
-### 📬 Endpoints Principales (resumen)
+### 📬 Endpoints Principales
 
 | Método | Endpoint | Descripción | Auth | Roles |
 |--------|----------|-------------|------|-------|
@@ -128,6 +127,8 @@ Ejemplo de body JSON para `/login`:
 
 - luego hacer `/topicos`
 ![GET /topicos](images/image.png)
+
+
 
 ```json
 {
@@ -188,7 +189,7 @@ Ejemplo de body JSON para `/login`:
 }
 ```
 
-## Estado del Proyecto
+## 📌 Estado del Proyecto
 
 ✅ Proyecto terminado con las funcionalidades principales del CRUD y autenticación implementadas.
 
