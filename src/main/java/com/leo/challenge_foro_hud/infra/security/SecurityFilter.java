@@ -27,14 +27,21 @@ public class SecurityFilter extends OncePerRequestFilter {
         var authHeader = request.getHeader("Authorization");
         if (authHeader != null) {
             var token = authHeader.replace("Bearer ", "");
-            var correoElectronico = tokenService.getSubject(token); // extract username
+            try {
+                var correoElectronico = tokenService.getSubject(token); // extract username
 
-            if (correoElectronico != null) {
-                // Token valido
-                var usuario = usuarioRepository.findByCorreoElectronico(correoElectronico);
-                var authentication = new UsernamePasswordAuthenticationToken(usuario, null,
-                        usuario.getAuthorities()); // Forzamos un inicio de sesion
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                if (correoElectronico != null) {
+                    // Token valido
+                    var usuario = usuarioRepository.findByCorreoElectronico(correoElectronico);
+                    var authentication = new UsernamePasswordAuthenticationToken(usuario, null,
+                            usuario.getAuthorities()); // Forzamos un inicio de sesion
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                }
+            }catch (Exception e){
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("application/json");
+                response.getWriter().write("{\"error\": \"Token invalido o expirado\"}");
+                return;
             }
         }
         filterChain.doFilter(request, response);
