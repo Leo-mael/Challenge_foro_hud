@@ -80,7 +80,7 @@ public class TopicoController {
         Topico topico = topicoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Topico no encontrado"));
 
-        Curso cursoId = cursoRepository.findById(topico.getCurso().getId())
+        Curso cursoId = cursoRepository.findById(datosActualizarTopico.idCurso())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso no encontrado"));
 
         topico.actualizarDatos(datosActualizarTopico, cursoId);
