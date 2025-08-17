@@ -53,7 +53,7 @@ Este proyecto fue desarrollado como parte del **Challenge Java Spring de Alura L
 - [Flyway](https://flywaydb.org/)
 - [JPA / Hibernate](https://hibernate.org/)
 - [Lombok](https://projectlombok.org/)
-- [Swagger / SpringDoc (pendiente)](https://springdoc.org/)
+- [Swagger / SpringDoc](https://springdoc.org/)
 - [JUnit / Mockito (pendiente)]
 
 
